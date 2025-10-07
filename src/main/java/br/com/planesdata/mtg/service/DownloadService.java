@@ -40,12 +40,11 @@ public class DownloadService {
             System.err.println("Erro ao criar diretórios: " + e.getMessage());
         }
 
-        try(
-                WritableByteChannel channel = Files.newByteChannel(
-                        path,
-                        StandardOpenOption.CREATE,
-                        StandardOpenOption.TRUNCATE_EXISTING,
-                        StandardOpenOption.WRITE)) {
+        try(WritableByteChannel channel = Files.newByteChannel(
+                path,
+                StandardOpenOption.CREATE,
+                StandardOpenOption.TRUNCATE_EXISTING,
+                StandardOpenOption.WRITE)) {
 
             WebClient.create()
                     .get()
