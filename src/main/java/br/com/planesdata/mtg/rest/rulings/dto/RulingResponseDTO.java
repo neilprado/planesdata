@@ -19,7 +19,10 @@ public record RulingResponseDTO(
         List<RulingDataDTO> rulingData) {
 
     public static RulingResponseDTO toDto(Ruling model) {
-        List<RulingDataDTO> rulingsData = Objects.nonNull(model.getRulingData()) ? model.getRulingData().stream().map(RulingDataDTO::toDto).toList() : null;
+        List<RulingDataDTO> rulingsData = Objects.nonNull(model.getRulingData()) ?
+                model.getRulingData().stream().map(RulingDataDTO::toDto).toList() :
+                null;
+        
         return new RulingResponseDTO(
                 model.getType(),
                 model.getHasMore(),
