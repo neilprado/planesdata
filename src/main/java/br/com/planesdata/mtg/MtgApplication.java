@@ -15,5 +15,4 @@ public class MtgApplication {
 		System.out.println("✅ Variáveis carregadas com sucesso.");
 		SpringApplication.run(MtgApplication.class, args);
 	}
-
 }

@@ -27,7 +27,6 @@ public record RulingResponseDTO(
                 model.getSource(),
                 model.getPublishedAt(),
                 model.getComment(),
-                rulingsData
-        );
+                rulingsData);
     }
 }

@@ -27,6 +27,4 @@ public class CardController {
         Page<Card> cards = cardService.list(pageable);
         return ResponseEntity.ok(cards.map(CardResponseDTO::toDto));
     }
-
-
 }

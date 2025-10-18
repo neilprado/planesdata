@@ -203,5 +203,3 @@ public record CardResponseDTO(String type,
                         purchase);
     }
 }
-
-

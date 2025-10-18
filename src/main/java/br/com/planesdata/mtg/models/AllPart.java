@@ -20,4 +20,3 @@ public class AllPart {
 
     private String uri;
 }
-
