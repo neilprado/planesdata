@@ -1,10 +1,14 @@
 package br.com.planesdata.mtg.service;
 
+import br.com.planesdata.mtg.models.Card;
 import br.com.planesdata.mtg.models.Download;
 import br.com.planesdata.mtg.models.FileData;
-import com.azure.json.implementation.jackson.core.JsonFactory;
-import com.azure.json.implementation.jackson.core.JsonParser;
-import com.azure.json.implementation.jackson.core.JsonToken;
+import br.com.planesdata.mtg.models.Ruling;
+import br.com.planesdata.mtg.repository.CardRepository;
+import br.com.planesdata.mtg.repository.RulingRepository;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.buffer.DataBuffer;
@@ -29,6 +33,8 @@ import static br.com.planesdata.mtg.utils.Constants.FILE_ADDRRESS;
 public class DownloadService {
 
     private static final WebClient webClient = WebClient.create(BASE_URL);
+    private final CardRepository cardRepository;
+    private final RulingRepository rulingRepository;
 
     public void generateFile(String fileType) {
         String uri = getDownloadedUri(fileType);
