@@ -6,6 +6,7 @@ import br.com.planesdata.mtg.service.CardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +24,8 @@ public class CardController {
     private final CardService cardService;
 
     @GetMapping
-    public ResponseEntity<Page<CardResponseDTO>>list(Pageable pageable) {
-        Page<Card> cards = cardService.list(pageable);
+    public ResponseEntity<Slice<CardResponseDTO>>list(Pageable pageable) {
+        Slice<Card> cards = cardService.list(pageable);
         return ResponseEntity.ok(cards.map(CardResponseDTO::toDto));
     }
 }

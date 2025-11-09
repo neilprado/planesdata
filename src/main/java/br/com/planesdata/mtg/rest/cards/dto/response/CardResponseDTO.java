@@ -12,7 +12,7 @@ import java.util.Objects;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
-// @JsonInclude(NON_NULL)
+@JsonInclude(NON_NULL)
 public record CardResponseDTO(String type,
                               String id,
                               String oracleID,
