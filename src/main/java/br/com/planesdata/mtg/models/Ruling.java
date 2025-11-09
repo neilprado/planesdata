@@ -29,7 +29,4 @@ public class Ruling {
     private String publishedAt;
 
     private String comment;
-
-    @JsonProperty(value = "data")
-    private List<RulingData> rulingData;
 }

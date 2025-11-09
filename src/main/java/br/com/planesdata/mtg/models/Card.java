@@ -1,5 +1,6 @@
 package br.com.planesdata.mtg.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Document(value = "cards")
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Card {
 
     @JsonProperty(value = "object")
@@ -29,32 +31,12 @@ public class Card {
     @JsonProperty(value = "multiverse_ids")
     private List<Integer> multiverseIDs;
 
-    @JsonProperty(value = "mtgo_id")
-    private Integer mtgoID;
-
-    @JsonProperty(value = "arena_id")
-    private Integer arenaId;
-
-    @JsonProperty(value = "mtgo_foil_id")
-    private Integer mtgoFoilID;
-
-    @JsonProperty(value = "tcgplayer_id")
-    private Integer tcgPlayerID;
-
-    @JsonProperty(value = "cardmarket_id")
-    private Integer cardMarketID;
-
     private String name;
 
     private String lang;
 
     @JsonProperty(value = "released_at")
     private String releasedAt;
-
-    private String uri;
-
-    @JsonProperty(value = "scryfall_uri")
-    private String scryfallURI;
 
     private String layout;
 
@@ -163,25 +145,8 @@ public class Card {
     @JsonProperty(value = "set_type")
     private String setType;
 
-    @JsonProperty(value = "set_uri")
-    private String setUri;
-
-    @JsonProperty(value = "set_search_uri")
-    private String setSearchUri;
-
-    @JsonProperty(value = "scryfall_set_uri")
-    private String scryfallSetUri;
-
-    @JsonProperty(value = "rulings_uri")
-    private String rulingsUri;
-
-    @JsonProperty(value = "prints_search_uri")
-    private String printsSearchUri;
-
     @JsonProperty(value = "collector_number")
     private String collectorNumber;
-
-    private Boolean digital;
 
     private String rarity;
 
@@ -205,48 +170,4 @@ public class Card {
     private String frame;
 
     private String defense;
-
-    @JsonProperty(value = "tcgplayer_etched_id")
-    private Integer tcgplayerEtchedID;
-
-    @JsonProperty(value = "frame_effects")
-    private List<String> frameEffects;
-
-    @JsonProperty(value = "flavor_name")
-    private String flavorName;
-
-    @JsonProperty(value = "content_warning")
-    private String contentWarning;
-
-    @JsonProperty(value = "security_stamp")
-    private String securityStamp;
-
-    @JsonProperty(value = "full_art")
-    private Boolean fullArt;
-
-    private Boolean textless;
-
-    private Boolean booster;
-
-    @JsonProperty(value = "story_spotlight")
-    private String storySpotlight;
-
-    @JsonProperty(value = "edhrec_rank")
-    private Integer edhrecRank;
-
-    private Preview preview;
-
-    private String watermark;
-
-    @JsonProperty(value = "penny_rank")
-    private Integer pennyRank;
-
-    @JsonProperty(value = "prices")
-    private Price price;
-
-    @JsonProperty(value = "related_uris")
-    private RelatedUri relatedUri;
-
-    @JsonProperty(value = "purchase_uris")
-    private PurchaseUri purchaseUri;
 }

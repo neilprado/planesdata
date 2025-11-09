@@ -15,21 +15,15 @@ public record RulingResponseDTO(
         String oracleID,
         String source,
         String publishedAt,
-        String comment,
-        List<RulingDataDTO> rulingData) {
+        String comment) {
 
     public static RulingResponseDTO toDto(Ruling model) {
-        List<RulingDataDTO> rulingsData = Objects.nonNull(model.getRulingData()) ?
-                model.getRulingData().stream().map(RulingDataDTO::toDto).toList() :
-                null;
-        
         return new RulingResponseDTO(
                 model.getType(),
                 model.getHasMore(),
                 model.getOracleID(),
                 model.getSource(),
                 model.getPublishedAt(),
-                model.getComment(),
-                rulingsData);
+                model.getComment());
     }
 }
